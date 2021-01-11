@@ -1,0 +1,31 @@
+{
+  "name": "grafana-vertical-plot",
+  "version": "1.0.0",
+  "description": "A vertical plot, great for plotting wind direction",
+  "scripts": {
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch"
+  },
+  "repository": "github:tomcheney/grafana-vertical-plot",
+  "author": "Tom Cheney",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/tomcheney/grafana-vertical-plot/issues",
+    "email": "tom@tomcheney.com"
+  },
+  "devDependencies": {
+    "@grafana/data": "7.3.6",
+    "@grafana/toolkit": "7.3.6",
+    "@grafana/ui": "7.3.6",
+    "@types/d3": "^5.7.2",
+    "emotion": "10.0.27"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "dependencies": {
+    "yarn": "^1.22.10"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "panel",
+  "name": "Vertical Plot",
+  "id": "grafana-vertical-plot",
+  "info": {
+    "description": "",
+    "author": {
+      "name": "Tom Cheney",
+      "url": "https://tomcheney.com"
+    },
+    "keywords": ["windplot"],
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [
+      {
+        "name": "Github",
+        "url": "https://github.com/tomcheney/grafana-vertical-plot"
+      }
+    ],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "dependencies": {
+    "grafanaVersion": "7.0.x",
+    "plugins": []
+  }
+}
