@@ -7,6 +7,8 @@ import { ScatterOptions } from 'types';
 import * as d3 from 'd3';
 import { useTheme } from '@grafana/ui';
 
+import CSS from 'csstype';
+
 interface Props extends PanelProps<ScatterOptions> {}
 
 interface Point {
@@ -95,9 +97,31 @@ export const ScatterPanel: React.FC<Props> = ({ options, data, width, height, ti
   const yAxis = d3.axisLeft(yScale).tickFormat(x => timeFormat(x as Date));
 
   console.log(options.color);
-  const color = getColorForTheme(options.color, theme);
+  const color = getColorForTheme(getColorByName(options.color) as ColorDefinition, theme.type);
+
+  const gridStyle: CSS.Properties = {
+    color: theme.palette.gray60,
+    strokeOpacity: 0.5,
+    shapeRendering: 'crispEdges',
+  };
+
   return (
     <svg width={width} height={height}>
+      <g
+        style={gridStyle}
+        transform={`translate(${margin.left}, ${height - margin.bottom})`}
+        ref={g => {
+          function make_x_gridlines(): any {
+            return d3.axisBottom(xScale).ticks(5);
+          }
+
+          d3.select(g).call(
+            make_x_gridlines()
+              .tickSize(-height)
+              .tickFormat('')
+          );
+        }}
+      />
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <path
           ref={path => {
